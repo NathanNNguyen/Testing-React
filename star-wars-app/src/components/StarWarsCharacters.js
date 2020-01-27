@@ -34,7 +34,7 @@ export default function StarWarsCharacters() {
   };
 
   return (
-    <div>
+    <div data-testid='testing'>
       {isLoading ? (
         <Loader
           type="ThreeDots"
@@ -44,17 +44,17 @@ export default function StarWarsCharacters() {
           timeout={3000} //3 secs
         />
       ) : (
-        <>
-          {characters.map(character => (
-            <div key={character.url}>{character.name}</div>
-          ))}
-        </>
-      )}
+          <>
+            {characters.map(character => (
+              <div key={character.url}>{character.name}</div>
+            ))}
+          </>
+        )}
       <div className="buttons">
-        <button onClick={goToPrevious} disabled={!previous}>
+        <button data-testid='prev-btn' onClick={goToPrevious} disabled={!previous}>
           Previous
         </button>
-        <button onClick={goToNext} disabled={!next}>
+        <button data-testid='next-btn' onClick={goToNext} disabled={!next}>
           Next
         </button>
       </div>
